@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let ps of person">
+      <tr>
+        <th scope="row">{{ps.id}}</th>
+        <td>{{ps.first}}</td>
+        <td>{{ps.last}}</td>
+        <td>{{ps.email}}</td>
+        <td>{{ps.phone}}</td>
+        <td><i class="fas fa-trash-alt">delete</i>
+          <i class="fa-solid fa-user"></i>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
