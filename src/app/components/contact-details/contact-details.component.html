@@ -1,0 +1,32 @@
+<div class="container p-5" *ngIf="data">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h2>Details for {{ data.first }} {{ data.last }}</h2>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">ID:</div>
+        <div class="col-md-10">{{ data.id }}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">First Name:</div>
+        <div class="col-md-10">{{ data.first }}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Last Name:</div>
+        <div class="col-md-10">{{ data.last }}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Email:</div>
+        <div class="col-md-10">{{ data.email }}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-2 font-weight-bold">Phone:</div>
+        <div class="col-md-10">{{ data.phone }}</div>
+      </div>
+    </div>
+    <div class="card-footer text-right">
+      <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+</div>

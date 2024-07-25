@@ -1,6 +1,21 @@
-.footer{
-  background-color: #6cf;
-  color: white;
-  text-align: center;
- padding: 10px;
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer .text-uppercase {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+footer .list-unstyled a {
+  text-decoration: none;
+}
+
+footer .list-unstyled a:hover {
+  text-decoration: underline;
+}
+
+footer .fab {
+  font-size: 1.5rem;
 }

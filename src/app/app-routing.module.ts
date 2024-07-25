@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router'
 import { ContactlistComponent } from "./components/contactlist/contactlist.component";
 import { HomeComponent } from "./components/home/home.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { ContactDetailsComponent } from "./components/contact-details/contact-details.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'Home', pathMatch: 'full'},
-  {path: 'Home', component: HomeComponent},
-  {path: 'List', component: ContactlistComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'list', component: ContactlistComponent},
+  { path: 'details/:id', component: ContactDetailsComponent },
   {path: '**',component: NotFoundComponent}
 
 ]

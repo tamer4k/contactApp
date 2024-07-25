@@ -1,27 +1,28 @@
-
-
-
-<div class="container">
-  <div class="row g-2">
-    <div class="container">
-      <picture >
-      <img src="assets\pngegg.png" alt="image" class="center">
-    </picture>
-    </div>
+<div class="container mt-5">
+  <div class="text-center mb-5">
+    <h1>Welkom bij ContactApp</h1>
   </div>
-  <div class="row g-2">
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <h3 style="text-align: center;">component from contactList</h3>
-        <app-contactlist ></app-contactlist>
 
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-
-      </div>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-4 text-center">
+      <picture>
+        <img src="assets/pngegg.png" alt="ContactApp Logo" class="img-fluid rounded">
+      </picture>
     </div>
   </div>
 
+  <div class="row g-lg-4 mb-5">
+    <div class="col-6">
+      <div class="p-4 border bg-light rounded shadow-sm">
+        <h4 class="mb-3">Beheer uw contacten</h4>
+        <a [routerLink]="['/list']" class="btn btn-primary">Bekijk contacten</a>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-4 border bg-light rounded shadow-sm">
+        <h4 class="mb-3">Nieuwe contacten toevoegen</h4>
+        <a [routerLink]="['/add-contact']" class="btn btn-success">Contactpersoon toevoegen</a>
+      </div>
+    </div>
+  </div>
 </div>
