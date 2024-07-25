@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ContactlistComponent,
     HomeComponent,
     NotFoundComponent,
+    ContactDetailsComponent,
 
   ],
   imports: [
@@ -28,6 +31,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
+    FontAwesomeModule
 
   ],
   providers: [ContactService],
