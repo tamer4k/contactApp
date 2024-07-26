@@ -10,17 +10,30 @@ import { faTrashAlt, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-ic
 })
 export class ContactlistComponent implements OnInit {
 
+
+
+
   faUser = faUser;
   faTrashAlt = faTrashAlt;
   faInfoCircle = faInfoCircle;
-  
+
   person : Person[] = [];
 
   constructor(private contactService: ContactService){
 
   }
+
   ngOnInit(): void {
-    this.contactService.getContact().subscribe((person)=> (this.person = person));
+    this.contactService.getContact().subscribe((person) => {this.person = person; this.contactService.setItemInlocalStorage('contact', this.person);});
+  }
+
+
+  onDelete(person: Person) {
+    if (person.id === undefined) {
+      console.error('ID is undefined');
+      return;
+    }
+    this.contactService.deletePerson(person).subscribe(() => (this.person = this.person.filter((t) => t.id !== person.id)));
   }
 
 }

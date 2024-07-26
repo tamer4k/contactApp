@@ -16,8 +16,8 @@
         <td>{{ps.last}}</td>
         <td>{{ps.email}}</td>
         <td>{{ps.phone}}</td>
-        <td><fa-icon [icon]="faTrashAlt" class="text-danger"></fa-icon></td>
-        <td><a [routerLink]="['/details', ps.id]"><fa-icon [icon]="faInfoCircle" class="custom-info-color"></fa-icon></a></td>
+        <td><fa-icon [icon]="faTrashAlt" class="text-danger" (click)="onDelete(ps)"></fa-icon></td>
+        <td><a [routerLink]="['/details', ps.id]"><fa-icon  [icon]="faInfoCircle" class="custom-info-color"></fa-icon></a></td>
       </tr>
     </tbody>
   </table>
