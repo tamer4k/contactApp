@@ -20,11 +20,18 @@ export class ContactlistComponent implements OnInit {
   person : Person[] = [];
 
   constructor(private contactService: ContactService){
+    
+    this.contactService.addedNewContact.subscribe((newContact: Person) => {
+      this.person.push(newContact);
+      this.contactService.setItemInlocalStorage('contact', this.person);
+    });
 
   }
 
   ngOnInit(): void {
-    this.contactService.getContact().subscribe((person) => {this.person = person; this.contactService.setItemInlocalStorage('contact', this.person);});
+    this.contactService.getContact().subscribe((person) => {
+      this.person = person;
+      this.contactService.setItemInlocalStorage('contact', this.person);});
   }
 
 

@@ -2,59 +2,38 @@
   "contacts": [
     {
       "id": "1",
-      "first": "Tamer",
-      "last": "Alashraf",
+      "firstName": "Tamer",
+      "lastName": "Alashraf",
       "phone": "06363636",
       "email": "ali@example2.com"
     },
     {
       "id": "2",
-      "first": "Ali",
-      "last": "Saad",
+      "firstName": "Ali",
+      "lastName": "Saad",
       "phone": "06363636",
       "email": "ali@example2.com"
     },
     {
       "id": "3",
-      "first": "Barry",
-      "last": "Krammer",
+      "firstName": "Barry",
+      "lastName": "Krammer",
       "phone": "123-456-7890",
       "email": "barry@example.com"
     },
     {
       "id": "4",
-      "first": "Jos",
-      "last": "Jos",
+      "firstName": "Jos",
+      "lastName": "Jos",
       "phone": "123-456-7890",
       "email": "jos@example.com"
     },
     {
       "id": "5",
-      "first": "Tamer",
-      "last": "Alashraf",
-      "phone": "06363636",
-      "email": "ali@example2.com"
-    },
-    {
-      "id": "6",
-      "first": "Ali",
-      "last": "Saad",
-      "phone": "06363636",
-      "email": "ali@example2.com"
-    },
-    {
-      "id": "7",
-      "first": "Barry",
-      "last": "Krammer",
-      "phone": "123-456-7890",
-      "email": "barry@example.com"
-    },
-    {
-      "id": "8",
-      "first": "Jos",
-      "last": "Jos",
-      "phone": "123-456-7890",
-      "email": "jos@example.com"
+      "firstName": "Tamer",
+      "lastName": "Alashraf",
+      "email": "tamer.alashraf@hotmail.com",
+      "phone": "0681830529"
     }
   ]
 }
