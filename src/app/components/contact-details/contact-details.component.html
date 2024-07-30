@@ -1,7 +1,7 @@
 <div class="container p-5" *ngIf="data">
   <div class="card">
     <div class="card-header bg-primary text-white">
-      <h2>Details for {{ data.first }} {{ data.last }}</h2>
+      <h2>Details for {{ data.firstName }} {{ data.lastName }}</h2>
     </div>
     <div class="card-body">
       <div class="row mb-3">
@@ -10,11 +10,11 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-2 font-weight-bold">First Name:</div>
-        <div class="col-md-10">{{ data.first }}</div>
+        <div class="col-md-10">{{ data.firstName }}</div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2 font-weight-bold">Last Name:</div>
-        <div class="col-md-10">{{ data.last }}</div>
+        <div class="col-md-10">{{ data.lastName }}</div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2 font-weight-bold">Email:</div>

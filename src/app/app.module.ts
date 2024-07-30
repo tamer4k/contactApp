@@ -14,6 +14,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddItemComponent } from './components/add-item/add-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NotFoundComponent,
     ContactDetailsComponent,
+    AddItemComponent,
 
   ],
   imports: [
@@ -31,7 +34,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
 
   ],
   providers: [ContactService],
