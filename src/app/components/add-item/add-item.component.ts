@@ -20,6 +20,7 @@ export class AddItemComponent {
     email: '',
     phone: ''
   };
+showForm: any;
 
   constructor(private contactService: ContactService) { }
   ngOnInit(): void {
@@ -48,6 +49,9 @@ export class AddItemComponent {
 
   }
 
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
 
 
 

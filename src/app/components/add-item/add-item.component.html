@@ -1,6 +1,12 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
+<button class="btn btn-primary mb-3" (click)="toggleForm()">
+  {{ showForm ? 'Hide Form' : 'Add New Contact' }}
+</button>
+<div *ngIf="showForm">
+  <div class="row justify-content-center">
+    <div class="">
       <div class="card shadow-lg">
         <div class="card-header bg-primary text-white">
           <h4 class="mb-0">Add New Contact</h4>
@@ -29,10 +35,14 @@
             </div>
 
             <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Add Contact</button>
-            
+
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+    </div>
+
+  </div>
