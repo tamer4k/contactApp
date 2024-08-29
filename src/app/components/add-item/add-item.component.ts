@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ContactService } from 'src/app/services/contact.service';
 import { Person } from 'src/app/Person';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-add-item',
@@ -11,49 +12,55 @@ import { Person } from 'src/app/Person';
 
 
 
-export class AddItemComponent {
+export class AddItemComponent implements OnDestroy {
 
-  contact: Person = {
-    id: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: ''
-  };
-showForm: any;
+    protected contact!: Person;
+
+//   contact: Person = {
+//     id: '',
+//     firstName: '',
+//     lastName: '',
+//     email: '',
+//     phone: ''
+//   };
+
+    showForm: any;
+
+    #unsubscribe$ = new Subject<void>()
 
   constructor(private contactService: ContactService) { }
-  ngOnInit(): void {
-
-  }
-
 
   onSubmit(): void {
+    // if (!this.contact.firstName || !this.contact.lastName){
+    //    alert("velden zijn verplicht");
+    // } else {
+    //   this.contactService.addContact(this.contact)
+    //   .pipe(takeUntil(this.#unsubscribe$))
+    //   .subscribe((newContact)=>{
+    //     this.contactService.addContactSubject.next(newContact);
+    //     this.#resetForm();
+    //   });
+    // }
+  }
 
-    if(!this.contact.firstName || !this.contact.lastName){
-       alert("velden zijn verplicht");
-    }else{
-
-      this.contactService.addContact(this.contact).subscribe((newContact)=>{
-        this.contactService.addedNewContact.emit(newContact);
-
-        this.contact = {
-          id: '',
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: ''
-        }
-      });
-    }
-
+  #resetForm() {
+    // this.contact = {
+    //     id: '',
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     phone: ''
+    // }
   }
 
   toggleForm() {
     this.showForm = !this.showForm;
   }
 
-
+  ngOnDestroy(): void {
+    this.#unsubscribe$.next();
+    this.#unsubscribe$.complete();
+}
 
 }
 
