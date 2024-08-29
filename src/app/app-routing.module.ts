@@ -4,12 +4,14 @@ import { ContactlistComponent } from "./components/contactlist/contactlist.compo
 import { HomeComponent } from "./components/home/home.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { ContactDetailsComponent } from "./components/contact-details/contact-details.component";
+import { AddItemComponent } from "./components/add-item/add-item.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'list', component: ContactlistComponent},
   { path: 'details/:id', component: ContactDetailsComponent },
+  { path: 'new', component: AddItemComponent },
   {path: '**',component: NotFoundComponent}
 
 ]

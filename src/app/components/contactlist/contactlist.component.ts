@@ -1,37 +1,45 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Person } from 'src/app/Person';
 import { ContactService } from 'src/app/services/contact.service';
 import { faTrashAlt, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-contactlist',
   templateUrl: './contactlist.component.html',
   styleUrls: ['./contactlist.component.scss']
 })
-export class ContactlistComponent implements OnInit {
+export class ContactlistComponent implements OnInit, OnDestroy {
 
 
-
+  #unsubscribe$ = new Subject<void>();
 
   faUser = faUser;
   faTrashAlt = faTrashAlt;
   faInfoCircle = faInfoCircle;
 
-  person : Person[] = [];
+ protected persons : Person[] = [];
 
-  constructor(private contactService: ContactService){
-    
-    this.contactService.addedNewContact.subscribe((newContact: Person) => {
-      this.person.push(newContact);
-      this.contactService.setItemInlocalStorage('contact', this.person);
-    });
-
+  constructor(private contactService: ContactService) {
+    this.contactService.addContact$
+        .pipe(takeUntil(this.#unsubscribe$))
+        .subscribe((contact: Person) => {
+            this.persons.push(contact);
+            this.contactService.setItemInlocalStorage('contact', this.persons);
+        });
   }
 
   ngOnInit(): void {
-    this.contactService.getContact().subscribe((person) => {
-      this.person = person;
-      this.contactService.setItemInlocalStorage('contact', this.person);});
+    this.#getContacts();
+  }
+
+  #getContacts() {
+    this.contactService.getContact()
+    .pipe(takeUntil(this.#unsubscribe$))
+    .subscribe((persons: any[]) => {
+      this.persons = persons;
+      console.log(persons)
+      this.contactService.setItemInlocalStorage('contact', this.persons);});
   }
 
 
@@ -40,7 +48,13 @@ export class ContactlistComponent implements OnInit {
       console.error('ID is undefined');
       return;
     }
-    this.contactService.deletePerson(person).subscribe(() => (this.person = this.person.filter((t) => t.id !== person.id)));
+    this.contactService.deletePerson(person)
+    .pipe(takeUntil(this.#unsubscribe$))
+    .subscribe(() => (this.persons = this.persons.filter((t) => t.id !== person.id)));
   }
 
+    ngOnDestroy(): void {
+      this.#unsubscribe$.next();
+      this.#unsubscribe$.complete();
+  }
 }
