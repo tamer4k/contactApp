@@ -53,9 +53,7 @@ export class AddItemComponent implements OnDestroy {
     // }
   }
 
-  toggleForm() {
-    this.showForm = !this.showForm;
-  }
+
 
   ngOnDestroy(): void {
     this.#unsubscribe$.next();
